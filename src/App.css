@@ -1,0 +1,42 @@
+.layoutContainer {
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(52 53 65);
+}
+
+.sidebar {
+  height: 100vh;
+  width: 15vw;
+  background-color: rgb(32, 33, 35);
+}
+
+.chatContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.messageList {
+  min-height: 75vh;
+  scroll-behavior: smooth;
+}
+
+.cs-message-input {
+  width: 75vw;
+  margin: 2rem;
+}
+
+.cs-message-input__content-editor{
+  color: white!important;
+}
+
+.cs-message-input__content-editor::before{
+  color: #ccc!important;
+}
+
+.cs-message-input__content-editor-wrapper, .cs-message-input__content-editor {
+  background-color: #444654!important;
+  padding: .8rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
