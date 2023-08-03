@@ -3,12 +3,12 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import {Avatar, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 import avatar from './assets/avatar.png'
+const API_KEY = process.env.GPT_API_KEY;
 const systemMessage = {
   "role": "system", "content": "Explain things like you're talking to a software professional with 5 years of experience."
 }
 
 function App() {
-  const API_KEY = process.env.GPT_API_KEY;
   const [messages, setMessages] = useState([
   ]);
   const [isTyping, setIsTyping] = useState(false);
