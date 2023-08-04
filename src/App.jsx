@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import {Avatar, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import {Avatar, MessageInput } from '@chatscope/chat-ui-kit-react';
 import avatar from './assets/avatar.png';
 import { default_questions } from './constants/default_questions';
 const API_KEY = process.env.GPT_API_KEY;
@@ -76,6 +76,11 @@ function App() {
     });
   }
 
+  const handleDefault = (message) => {
+    console.log(message)
+    handleSend(message);
+  }
+
   return (
     <div className="App">
         <MainContainer>
@@ -83,9 +88,9 @@ function App() {
             <div className='headerContainer'>
               <p>Default (GPT-3.5)</p>
             </div>
-            <div className='messageList'>
+            <div className='messageList' style={{flexDirection: messages.length > 0 ? 'column' : 'column-reverse'}}>
               {messages.length === 0 
-                ? <DefaultGrid default_questions={default_questions}/> 
+                ? <DefaultGrid default_questions={default_questions} onClick={handleDefault}/> 
                 : (messages.map((message, i) => {
                     console.log(message)
                     return (
@@ -103,16 +108,14 @@ function App() {
                     )
                   }))
               }
-              {isTyping && <TypingIndicator content="Chat Bot is responding"/>}
+              {isTyping && <Typing />}
             </div>
-            <div className='inputContainer'>
+            <div className='inputContainer' id={'input'}>
               <MessageInput 
                 attachButton={false} 
-                placeholder="Type message here" 
+                placeholder="Send a message" 
                 onSend={handleSend} 
-                style={{
-                  backgroundColor: 'transparent'
-                }}
+                style={{backgroundColor: 'transparent'}}
               />        
             </div>
           </div>
@@ -134,12 +137,13 @@ const MainContainer = ({children}) => {
   )
 }
 
-const DefaultGrid = ({default_questions}) => {
+const DefaultGrid = ({default_questions, onClick}) => {
   return (
     <div>
       <div className='row'>
         {default_questions.map((question) => (
-          <Card 
+          <Card
+            onClick={onClick}
             key={question.id}
             content={question.content}
             title={question.title}
@@ -150,11 +154,20 @@ const DefaultGrid = ({default_questions}) => {
   )
 }
 
-const Card = ({title, content}) => {
+const Card = ({title, content, onClick}) => {
   return (
-    <div className='contentCard'>
+    <div className='contentCard' onClick={() => onClick(`${title} ${content}`)}>
       <p className='title'>{title}</p>
       <p className='content'>{content}</p>
+    </div>
+  )
+}
+
+const Typing = () => {
+  return (
+    <div className='typing'>
+    <Avatar src={'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/800px-ChatGPT_logo.svg.png'}/>
+    <div className='blink'><span /></div>
     </div>
   )
 }

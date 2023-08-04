@@ -127,12 +127,12 @@ This is an example of how to list things you need to use the software and how to
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Send request on default question click
+- [x] Send request on default question click
 - [ ] Add more default questions
 - [ ] Add New Chat Button
 - [ ] Add Conversations
 - [ ] Add Code view
-- [ ] Add Additional Templates w/ Examples
+- [ ] OAuth
 
 
 See the [open issues](https://github.com/MiCurran/gpt-react-clone/issues) for a full list of proposed features (and known issues).
