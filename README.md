@@ -127,6 +127,8 @@ This is an example of how to list things you need to use the software and how to
 <!-- ROADMAP -->
 ## Roadmap
 
+- [ ] Send request on default question click
+- [ ] Add more default questions
 - [ ] Add New Chat Button
 - [ ] Add Conversations
 - [ ] Add Code view
