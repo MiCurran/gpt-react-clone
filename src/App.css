@@ -1,3 +1,9 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .layoutContainer {
   min-width: 100vw;
   display: flex;
@@ -18,8 +24,10 @@
 }
 
 .messageList {
+  display: flex;
   min-height: 75vh;
   scroll-behavior: smooth;
+  flex-direction: column-reverse;
 }
 
 .cs-message-input {
@@ -39,4 +47,55 @@
   background-color: #444654!important;
   padding: .8rem;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.messageContainer { 
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  border: 1px solid rgba(32,33,35,.5);
+}
+
+.messageContainer p {
+    margin: .8rem;
+}
+
+.headerContainer {
+  background-color: rgb(52 53 65);
+  padding: 1rem;
+  text-align: center;
+  font-size: .8rem;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.contentCard {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  border-radius: 10px;
+  margin: .3rem;
+  text-align: left;
+  padding: .8rem 1rem;
+  border: 1px solid rgb(86,88,105);
+    .title {
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: -.8rem;
+    }
+    .content {
+      font-size: .8rem;
+      opacity: .5;
+      color: rgb(197,197,210);
+      margin: 0;
+      margin-top: 1rem;
+    }
+}
+
+.contentCard:hover {
+  transform: scale(1.02);
+  background-color: #444654;
+  cursor: pointer;
 }
